@@ -12,8 +12,16 @@
 }
 
 .menu-popper {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 8px;
+    max-height: min((100vh - 96px) - 60px, 734px);
 }
+
+.menu-body {
+    overflow-y: auto;
+}
+
 //Menu items
 .menu-item {
     width: 100%;
@@ -36,6 +44,7 @@
 .header {
     position: relative;
     height: 50px;
+    flex-shrink: 0;
 }
 .back-btn {
     width: 50px;
