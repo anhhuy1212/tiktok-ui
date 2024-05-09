@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
-import * as searchService from '~/apiService/searchServices';
+import * as searchService from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import AccountItem from '~/component/AccountItem';
 import styles from './Search.module.scss';
@@ -39,6 +39,7 @@ function Search() {
         };
 
         fetchApi();
+        // eslint-disable-next-line
     }, [debounced]);
 
     const handleClear = () => {
@@ -55,10 +56,6 @@ function Search() {
         if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue);
         }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
     };
 
     return (

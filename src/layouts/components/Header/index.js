@@ -5,14 +5,14 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
+    // faCloudUpload,
     faUser,
     faCoins,
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Tippy from '@tippyjs/react';
 
 import 'tippy.js/dist/tippy.css';
@@ -24,7 +24,7 @@ import images from '~/assets/images';
 import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
 import { InboxIcons, MessagesIcons, UploadIcon } from '~/component/Icons';
-import Search from '../Seach';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -99,7 +99,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
 
