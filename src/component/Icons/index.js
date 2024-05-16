@@ -181,3 +181,22 @@ export const LiveActiveIcon = ({ width = '3.2rem', height = '3.2rem', className 
         ></path>
     </svg>
 );
+
+export const GPSIcon = ({ width = '1em', height = '1em' }) => (
+    <svg
+        font-size="14px"
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+    >
+        <path d="M0 5a5 5 0 0 1 5-5h38a5 5 0 0 1 5 5v38a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5Z" fill="#13BD90"></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M24 40.5c.88 0 14-11.43 14-19.1 0-7.68-6.27-13.9-14-13.9s-14 6.22-14 13.9c0 7.67 13.13 19.1 14 19.1Zm0-14.76c2.9 0 5.25-2.34 5.25-5.21A5.23 5.23 0 0 0 24 15.32a5.23 5.23 0 0 0-5.25 5.2A5.23 5.23 0 0 0 24 25.75Z"
+            fill="#fff"
+        ></path>
+    </svg>
+);

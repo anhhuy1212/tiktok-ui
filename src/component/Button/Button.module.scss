@@ -39,6 +39,16 @@
     }
 }
 
+.squared {
+    border-color: rgba(22, 24, 35, 0.12);
+    font-weight: 600;
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
 .outline {
     color: var(--primary);
     border-color: currentColor;
