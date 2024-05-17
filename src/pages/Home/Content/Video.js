@@ -1,9 +1,39 @@
 import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
+import { LikeIcon } from '~/component/Icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark, faCommentDots, faShare, faLink } from '@fortawesome/free-solid-svg-icons';
+import { EmbedIcon, SendToFriendsIcon, FacebookIcon, WhatsAppIcon } from '~/component/Icons';
+import ShareMenu from './ShareMenu';
 
 const cx = classNames.bind(styles);
 
 function Video({ width = '346px', height = '619px' }) {
+    const SHARE_ITEMS = [
+        {
+            icon: <EmbedIcon />,
+            title: 'Embed',
+        },
+        {
+            icon: <SendToFriendsIcon />,
+            title: 'Send to friends',
+        },
+        {
+            icon: <FacebookIcon />,
+            title: 'Share to Facebook',
+            href: 'https://www.facebook.com',
+        },
+        {
+            icon: <WhatsAppIcon />,
+            title: 'Share to WhatsApp',
+            href: 'https://www.whatsapp.com',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faLink} />,
+            title: 'Copy link',
+        },
+    ];
+
     return (
         <div className={cx('content-video')}>
             <div className={cx('video')}>
@@ -17,10 +47,33 @@ function Video({ width = '346px', height = '619px' }) {
                 ></video>
             </div>
             <div className={cx('interact-video')}>
-                <button>Likes</button>
-                <button>Comments</button>
-                <button>Save</button>
-                <button>Share</button>
+                <button className={cx('like-btn')}>
+                    <p className={cx('like-icon')}>
+                        <LikeIcon />
+                    </p>
+                    <strong className={cx('like-count')}>23K</strong>
+                </button>
+                <button className={cx('comment-btn')}>
+                    <p className={cx('comment-icon')}>
+                        <FontAwesomeIcon className={cx('comment-fontawsome-icon')} icon={faCommentDots} />
+                    </p>
+                    <strong className={cx('comment-count')}>3K</strong>
+                </button>
+                <button className={cx('save-btn')}>
+                    <p className={cx('save-icon')}>
+                        <FontAwesomeIcon className={cx('save-fontawsome-icon')} icon={faBookmark} />
+                    </p>
+                    <strong className={cx('save-count')}>2.5K</strong>
+                </button>
+
+                <ShareMenu items={SHARE_ITEMS}>
+                    <button className={cx('share-btn')}>
+                        <p className={cx('share-icon')}>
+                            <FontAwesomeIcon className={cx('share-fontawsome-icon')} icon={faShare} />
+                        </p>
+                        <strong className={cx('share-count')}>1K</strong>
+                    </button>
+                </ShareMenu>
             </div>
         </div>
     );

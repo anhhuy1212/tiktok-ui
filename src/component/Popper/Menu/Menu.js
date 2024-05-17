@@ -9,7 +9,6 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
 import Header from './Header';
-
 const cx = classNames.bind(styles);
 const defautFn = () => {};
 

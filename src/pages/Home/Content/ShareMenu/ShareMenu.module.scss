@@ -1,0 +1,23 @@
+.share-body {
+    width: 280px;
+    max-height: min((100vh - 96px) - 60px, 734px);
+    min-height: 100px;
+    padding: 8px 0px;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    overflow: auto;
+}
+.share-item {
+    width: 100%;
+    justify-content: left;
+    margin-left: 0px !important;
+    cursor: context-menu;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
