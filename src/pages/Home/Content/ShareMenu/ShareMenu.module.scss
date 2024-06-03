@@ -1,21 +1,18 @@
 .share-body {
     width: 280px;
+}
+.share-popover {
     max-height: min((100vh - 96px) - 60px, 734px);
-    min-height: 100px;
-    padding: 8px 0px;
-    border-radius: 8px;
-    background: rgb(255, 255, 255);
-    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
-    font-weight: 600;
+    padding: 0px 2px 12px 0px;
     font-size: 16px;
     line-height: 21px;
-    overflow: auto;
 }
 .share-item {
     width: 100%;
     justify-content: left;
+    font-weight: 600;
     margin-left: 0px !important;
-    cursor: context-menu;
+    cursor: default;
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);

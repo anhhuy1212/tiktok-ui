@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ShareMenu.module.scss';
-import Tippy from '@tippyjs/react/headless';
 import ShareItem from './ShareItem';
+import { Popover } from 'antd';
 // import { useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -22,9 +22,9 @@ function Menu({ children, items = [] }) {
     );
 
     return (
-        <Tippy interactive delay={[0, 700]} placement="top-start" offset={(12, 6)} render={renderResult}>
+        <Popover className={cx('share-popover')} placement="topLeft" content={renderResult}>
             {children}
-        </Tippy>
+        </Popover>
     );
 }
 

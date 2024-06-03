@@ -10,10 +10,17 @@ import Video from './Video';
 import Button from '~/component/Button';
 import { GPSIcon } from '~/component/Icons';
 import config from '~/config';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Content() {
+    const [isFollow, setIsFollow] = useState(false);
+
+    const handleFollow = () => {
+        setIsFollow(!isFollow);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('box-avatar')}>
@@ -34,8 +41,8 @@ function Content() {
                         </a>
                     </div>
 
-                    <div className={cx('following-btn')}>
-                        <Button squared>Following</Button>
+                    <div className={cx('following-btn')} onClick={handleFollow}>
+                        {isFollow ? <Button squared>Following</Button> : <Button primary>Follow</Button>}
                     </div>
                 </div>
                 <div className={cx('box-video')}>

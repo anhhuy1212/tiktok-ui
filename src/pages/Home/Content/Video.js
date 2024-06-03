@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
+import { useState } from 'react';
 import { LikeIcon } from '~/component/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCommentDots, faShare, faLink } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,10 @@ import ShareMenu from './ShareMenu';
 const cx = classNames.bind(styles);
 
 function Video({ width = '346px', height = '619px' }) {
+    const [isLike, setIsLike] = useState(false);
+    const [isSave, setIsSave] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
+
     const SHARE_ITEMS = [
         {
             icon: <EmbedIcon />,
@@ -34,21 +39,25 @@ function Video({ width = '346px', height = '619px' }) {
         },
     ];
 
+    const handleLike = () => {
+        setIsLike(!isLike);
+    };
+
+    const handleSave = () => {
+        setIsSave(!isSave);
+    };
+    const hide = () => {
+        setIsOpen(false);
+    };
+
     return (
         <div className={cx('content-video')}>
             <div className={cx('video')}>
-                <video
-                    controls
-                    loop
-                    autoPlay
-                    width={width}
-                    height={height}
-                    src="https://v16-webapp-prime.tiktok.com/video/tos/useast2a/tos-useast2a-ve-0068-euttp/oUFo2ZemHA1SD5PgEmaDIRdBP44fIAYqEyiQQD/?a=1988&bti=NDU3ZjAwOg%3D%3D&ch=0&cr=3&dr=0&lr=unwatermarked&cd=0%7C0%7C0%7C&cv=1&br=3124&bt=1562&cs=0&ds=6&ft=-Csk_m7nPD12NZ4YDT-Uxh42aY6e3wv257cAp&mime_type=video_mp4&qs=0&rc=OTQ6Ojo5OzY7aTozZGQ2OEBpanZqbW05cjY2cjMzZjczM0BjXl9hMy5hNS0xMWE2YTQyYSNsZjZgMmRzaGJgLS1kMWNzcw%3D%3D&btag=e00090000&expire=1715945943&l=202405151137540DFEF66E31E3090B70F5&ply_type=2&policy=2&signature=793bb11f3f856416fedbba002eb388be&tk=tt_chain_token"
-                ></video>
+                <video controls loop autoPlay type="video/mp4" width={width} height={height} src=""></video>
             </div>
             <div className={cx('interact-video')}>
-                <button className={cx('like-btn')}>
-                    <p className={cx('like-icon')}>
+                <button className={cx('like-btn')} onClick={handleLike}>
+                    <p className={isLike ? cx('like-icon-active') : cx('like-icon')}>
                         <LikeIcon />
                     </p>
                     <strong className={cx('like-count')}>23K</strong>
@@ -59,21 +68,21 @@ function Video({ width = '346px', height = '619px' }) {
                     </p>
                     <strong className={cx('comment-count')}>3K</strong>
                 </button>
-                <button className={cx('save-btn')}>
-                    <p className={cx('save-icon')}>
+                <button className={cx('save-btn')} onClick={handleSave}>
+                    <p className={isSave ? cx('save-icon-active') : cx('save-icon')}>
                         <FontAwesomeIcon className={cx('save-fontawsome-icon')} icon={faBookmark} />
                     </p>
                     <strong className={cx('save-count')}>2.5K</strong>
                 </button>
 
-                <ShareMenu items={SHARE_ITEMS}>
-                    <button className={cx('share-btn')}>
+                <button className={cx('share-btn')} onClick={hide}>
+                    <ShareMenu items={SHARE_ITEMS}>
                         <p className={cx('share-icon')}>
                             <FontAwesomeIcon className={cx('share-fontawsome-icon')} icon={faShare} />
                         </p>
                         <strong className={cx('share-count')}>1K</strong>
-                    </button>
-                </ShareMenu>
+                    </ShareMenu>
+                </button>
             </div>
         </div>
     );
