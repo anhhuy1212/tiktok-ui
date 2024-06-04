@@ -1,7 +1,13 @@
 .share-body {
     width: 280px;
 }
-.share-popover {
+.share-popover-hover {
+    max-height: min((100vh - 96px) - 60px, 734px);
+    padding: 0px 2px 12px 0px;
+    font-size: 16px;
+    line-height: 21px;
+}
+.share-popover-click {
     max-height: min((100vh - 96px) - 60px, 734px);
     padding: 0px 2px 12px 0px;
     font-size: 16px;

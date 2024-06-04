@@ -8,15 +8,15 @@ import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Username({ to }) {
+function Username({ data, to }) {
     return (
         <div className={cx('user')}>
             <NavLink className={cx('username')} to={to}>
                 <strong className={cx('nickname')}>
-                    zachking
-                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                    {data.nickname}
+                    {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                 </strong>
-                <p className={cx('name')}>ZachKing</p>
+                <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
             </NavLink>
         </div>
     );

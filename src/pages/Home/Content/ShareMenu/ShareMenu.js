@@ -6,9 +6,8 @@ import { Popover } from 'antd';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], hoverChange, hoverOpenChange }) {
     // const [history, setHistory] = useState([{ data: items }]);
-    // console.log(history.data);
 
     const renderItems = () => {
         return items.map((item, index) => {
@@ -22,7 +21,13 @@ function Menu({ children, items = [] }) {
     );
 
     return (
-        <Popover className={cx('share-popover')} placement="topLeft" content={renderResult}>
+        <Popover
+            className={cx('share-popover-hover')}
+            open={hoverChange}
+            onOpenChange={hoverOpenChange}
+            placement="topLeft"
+            content={renderResult}
+        >
             {children}
         </Popover>
     );

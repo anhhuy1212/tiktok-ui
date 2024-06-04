@@ -1,13 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
-import Tippy from '@tippyjs/react/headless';
-import images from '~/assets/images';
 import Image from '~/component/Image';
-// import AccountPreview from './AccountPreview';
+// import AccountPreview from './AccountPreview'
 
 const cx = classNames.bind(styles);
 
-function Avatar() {
+function Avatar({ data }) {
     // const renderPreview = (props) => {
     //     return (
     //         <div tabIndex="-1" {...props}>
@@ -20,9 +18,7 @@ function Avatar() {
 
     return (
         <div>
-            <Tippy interactive delay={[800, 0]} offset={[-20, -2]} placement="bottom">
-                <Image className={cx('avatar')} src={images.noImage} alt="zach" />
-            </Tippy>
+            <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
         </div>
     );
 }
