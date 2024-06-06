@@ -13,6 +13,7 @@ function Video({ width = '346px', height = '619px', data }) {
     const [isLike, setIsLike] = useState(data.popular_video.is_liked);
     const [likeCount, setLikeCount] = useState(data.popular_video.likes_count);
     const [isSave, setIsSave] = useState(false);
+    const [saveCount, setSaveCount] = useState(0);
     const [hovered, setHovered] = useState(false);
 
     const SHARE_ITEMS = [
@@ -51,7 +52,13 @@ function Video({ width = '346px', height = '619px', data }) {
     };
 
     const handleSave = () => {
-        setIsSave(!isSave);
+        if (isSave === false) {
+            setIsSave(!isSave);
+            setSaveCount(saveCount + 1);
+        } else {
+            setIsSave(!isSave);
+            setSaveCount(saveCount - 1);
+        }
     };
 
     const handleShare = () => {
@@ -87,7 +94,7 @@ function Video({ width = '346px', height = '619px', data }) {
                     <p className={isSave ? cx('save-icon-active') : cx('save-icon')}>
                         <FontAwesomeIcon className={cx('save-fontawsome-icon')} icon={faBookmark} />
                     </p>
-                    <strong className={cx('save-count')}>{data.popular_video.likes_count}</strong>
+                    <strong className={cx('save-count')}>{saveCount}</strong>
                 </button>
 
                 <ShareMenu hoverChange={hovered} hoverOpenChange={handleShare} items={SHARE_ITEMS}>

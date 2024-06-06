@@ -3,14 +3,51 @@
     height: 640px;
     padding-top: 14px;
     padding-left: 16px;
-
-    h2 {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 30px;
-        display: flex;
-    }
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.notification + .h2 {
+    font-size: 24px;
+    margin-right: 17px;
+    font-weight: 700;
+    line-height: 30px;
 }
 .notification-group {
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 17px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.notification-btn {
+    min-width: 88px;
+    padding: 4px 16px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(0 0 0 /6%);
+    border: none;
+    background-color: rgba(22, 24, 35, 0.06);
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+    &.active {
+        color: rgb(255, 255, 255);
+        background: rgb(22, 24, 35);
+    }
+}
+.time-group-title {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 8px;
 }
