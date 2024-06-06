@@ -13,9 +13,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import config from '~/config';
-import Tippy from '@tippyjs/react';
-
-import 'tippy.js/dist/tippy.css';
 
 import Button from '~/component/Button';
 
@@ -25,6 +22,9 @@ import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
 import { InboxIcons, MessagesIcons, UploadIcon } from '~/component/Icons';
 import Search from '../Search';
+import Notification from '../Header/Notification/Notification';
+import { useState } from 'react';
+import { Tooltip } from 'antd';
 
 const cx = classNames.bind(styles);
 
@@ -62,6 +62,9 @@ const MENU_ITEMS = [
 function Header() {
     const currentUser = true;
 
+    const [clicked, setClicked] = useState(false);
+    const [hovered, setHovered] = useState(false);
+
     //handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -69,6 +72,15 @@ function Header() {
                 break;
             default:
         }
+    };
+
+    const handleHoverChange = (open) => {
+        setHovered(open);
+        setClicked(false);
+    };
+    const handleClickChange = (open) => {
+        setHovered(false);
+        setClicked(open);
     };
 
     const userMenu = [
@@ -95,7 +107,6 @@ function Header() {
             separate: true,
         },
     ];
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -108,22 +119,30 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={(0, 50)} content="Upload video" placement="bottom">
+                            <Tooltip mouseLeaveDelay={0.05} title="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
-                            </Tippy>
-                            <Tippy delay={(0, 50)} content="Messages" placement="bottom">
+                            </Tooltip>
+                            <Tooltip mouseLeaveDelay={0.05} title="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessagesIcons />
                                 </button>
-                            </Tippy>
-                            <Tippy delay={(0, 50)} content="Inbox" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <InboxIcons />
-                                    <span className={cx('bagde')}>12</span>
-                                </button>
-                            </Tippy>
+                            </Tooltip>
+                            <Notification clickChange={clicked} clickOpenChange={handleClickChange}>
+                                <Tooltip
+                                    mouseLeaveDelay={0.05}
+                                    open={hovered}
+                                    onOpenChange={handleHoverChange}
+                                    title="Inbox"
+                                    placement="bottom"
+                                >
+                                    <button className={cx('action-btn')}>
+                                        <InboxIcons />
+                                        <span className={cx('bagde')}>12</span>
+                                    </button>
+                                </Tooltip>
+                            </Notification>
                         </>
                     ) : (
                         <>

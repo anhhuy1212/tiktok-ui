@@ -3,8 +3,6 @@ import styles from './Home.module.scss';
 import { useState, useEffect } from 'react';
 import Content from './Content';
 import Button from '~/component/Button';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 import * as userService from '~/services/userService';
 
 const cx = classNames.bind(styles);
@@ -28,12 +26,6 @@ function Home() {
                 <Button className={cx('getapp-btn')} rounded>
                     Get app
                 </Button>
-                {/* 
-                <div className={cx('backtop-btn')}>
-                    <Button circle>
-                        <FontAwesomeIcon icon={faAnglesUp} />
-                    </Button>
-                </div> */}
             </div>
         </div>
     );
