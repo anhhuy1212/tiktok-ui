@@ -7,20 +7,12 @@ import styles from './Content.module.scss';
 import Avatar from './Avatar';
 import Username from './Username';
 import Video from './Video';
-import Button from '~/component/Button';
 import { GPSIcon } from '~/component/Icons';
 import config from '~/config';
-import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Content({ data = [] }) {
-    const [isFollow, setIsFollow] = useState(false);
-
-    const handleFollow = () => {
-        setIsFollow(!isFollow);
-    };
-
     return (
         <div>
             {data.map((account) => (
@@ -34,23 +26,19 @@ function Content({ data = [] }) {
                                 <Username data={account} to={config.routes.profile} />
                                 <span className={cx('status')}>{account.popular_video.description}</span>
                                 <a className={cx('music')} href="/music">
-                                    {account.popular_video.music != '' ? (
+                                    {account.popular_video.music !== '' ? (
                                         <FontAwesomeIcon className={cx('music-icon')} icon={faMusic} />
                                     ) : (
                                         <FontAwesomeIcon className={cx('music-icon')} icon={faMusic} />
                                     )}
                                     {account.popular_video.music}
                                 </a>
-                                {account.website_url != '' && (
+                                {account.website_url !== '' && (
                                     <a className={cx('gps')} href="/map">
                                         <GPSIcon className={cx('gps-icon')} />
                                         {account.website_url}
                                     </a>
                                 )}
-                            </div>
-
-                            <div className={cx('following-btn')} onClick={handleFollow}>
-                                {isFollow ? <Button squared>Following</Button> : <Button primary>Follow</Button>}
                             </div>
                         </div>
                         <div className={cx('box-video')}>

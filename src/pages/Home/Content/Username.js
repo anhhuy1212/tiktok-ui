@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
-// import Tippy from '@tippyjs/react/headless';
-// import AccountPreview from './AccountPreview';
+import Button from '~/component/Button';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
@@ -9,6 +9,11 @@ import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Username({ data, to }) {
+    const [isFollow, setIsFollow] = useState(data.is_followed);
+
+    const handleFollow = () => {
+        setIsFollow(!isFollow);
+    };
     return (
         <div className={cx('user')}>
             <NavLink className={cx('username')} to={to}>
@@ -18,6 +23,9 @@ function Username({ data, to }) {
                 </strong>
                 <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
             </NavLink>
+            <div className={cx('following-btn')} onClick={handleFollow}>
+                {isFollow ? <Button squared>Following</Button> : <Button primary>Follow</Button>}
+            </div>
         </div>
     );
 }

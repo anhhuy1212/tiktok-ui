@@ -44,8 +44,8 @@
 }
 
 .following-btn {
-    position: relative;
-    left: 102px;
+    position: absolute;
+    left: 492px;
 }
 
 .music-icon {
@@ -259,6 +259,9 @@
             text-decoration: underline;
         }
     }
+}
+.user {
+    display: flex;
 }
 .nickname {
     font-size: 18px;
