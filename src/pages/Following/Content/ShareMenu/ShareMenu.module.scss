@@ -1,0 +1,26 @@
+.share-body {
+    width: 280px;
+}
+.share-popover-hover {
+    max-height: min((100vh - 96px) - 60px, 734px);
+    padding: 0px 2px 12px 0px;
+    font-size: 16px;
+    line-height: 21px;
+}
+.share-popover-click {
+    max-height: min((100vh - 96px) - 60px, 734px);
+    padding: 0px 2px 12px 0px;
+    font-size: 16px;
+    line-height: 21px;
+}
+.share-item {
+    width: 100%;
+    justify-content: left;
+    font-weight: 600;
+    margin-left: 0px !important;
+    cursor: default;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}

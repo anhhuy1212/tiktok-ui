@@ -1,16 +1,20 @@
+.wrapper {
+    width: 100%;
+    height: 640px;
+}
 .notification {
     width: 376px;
     height: 640px;
+    margin-right: -6px;
     padding-top: 14px;
     padding-left: 16px;
     font-family: var(--font-family);
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
 }
 .notification + .h2 {
     font-size: 24px;
-    margin-right: 17px;
+    margin-right: 12px;
     font-weight: 700;
     line-height: 30px;
 }
@@ -49,5 +53,19 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
+    margin-left: -9px;
     margin-top: 8px;
+}
+.list-notification {
+    width: 354px;
+    margin-left: -3px;
+    padding-left: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: scroll;
+}
+.spinner {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,6 +1,6 @@
 import styles from './Notification.module.scss';
 import classNames from 'classnames/bind';
-import { Popover } from 'antd';
+import { Popover, Spin } from 'antd';
 import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(styles);
@@ -36,12 +36,18 @@ const notifyTabs = [
 function Notification({ children, clickChange, clickOpenChange }) {
     const [type, setType] = useState('posts');
     const [inboxs, setInboxs] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         fetch(`https://jsonplaceholder.typicode.com/${type}`)
             .then((res) => res.json())
             .then((inboxs) => {
                 setInboxs(inboxs);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
             });
     }, [type]);
 
@@ -65,10 +71,16 @@ function Notification({ children, clickChange, clickOpenChange }) {
                     </div>
                     <div className={cx('list-notification')}>
                         <p className={cx('time-group-title')}>Latest</p>
+                        {loading && (
+                            <div className={cx('spinner')}>
+                                <Spin size="large"></Spin>
+                            </div>
+                        )}
                         <ul>
-                            {inboxs.map((inbox) => (
-                                <li key={inbox.id}>{inbox.title || inbox.name || inbox.username}</li>
-                            ))}
+                            {!loading &&
+                                inboxs.map((inbox) => (
+                                    <li key={inbox.id}>{inbox.title || inbox.name || inbox.username}</li>
+                                ))}
                         </ul>
                     </div>
                 </div>
@@ -78,7 +90,7 @@ function Notification({ children, clickChange, clickOpenChange }) {
 
     return (
         <Popover
-            className={cx('share-popover-hover')}
+            overlayInnerStyle={{ paddingRight: 0, paddingBottom: 0 }}
             open={clickChange}
             onOpenChange={clickOpenChange}
             placement="bottom"
