@@ -15,7 +15,7 @@ function Following() {
     useEffect(() => {
         setLoading(true);
         userService
-            .getSuggested({ page: 1, perPage: 8 })
+            .getSuggested({ page: 1, perPage: 15 })
             .then((data) => {
                 setSuggestedUsers(data);
                 setLoading(false);

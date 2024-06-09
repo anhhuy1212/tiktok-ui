@@ -6,9 +6,14 @@ const cx = classNames.bind(styles);
 
 function Avatar({ data }) {
     return (
-        <div className={cx('avatar-live')}>
-            <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
-            <span className={cx('note')}>Live</span>
+        <div className={cx('wrapper-avatar')}>
+            <div className={cx('avatar-live')}>
+                <span className={cx('border-avatar')}></span>
+                <span className={cx('live-arrow-avatar')}>
+                    <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
+                </span>
+                <span className={cx('note')}>Live</span>
+            </div>
             <strong className={cx('nickname')}>{data.nickname}</strong>
             <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
         </div>
