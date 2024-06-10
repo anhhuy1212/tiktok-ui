@@ -5,6 +5,7 @@ import Content from './Content';
 import Button from '~/component/Button';
 import * as userService from '~/services/userService';
 import { Skeleton } from 'antd';
+import { Helmet } from 'react-helmet';
 
 const cx = classNames.bind(styles);
 
@@ -25,6 +26,9 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
+            <Helmet>
+                <title>TikTok - Make Your Day</title>
+            </Helmet>
             {loading && (
                 <div className={cx('skeleton')}>
                     <Skeleton />

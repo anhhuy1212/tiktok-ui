@@ -1,5 +1,14 @@
+import { Helmet } from 'react-helmet';
+
 function Live() {
-    return <h1>Live page</h1>;
+    return (
+        <div>
+            <Helmet>
+                <title>TikTok LIVE | TikTok</title>
+            </Helmet>
+            <h1>Live page</h1>
+        </div>
+    );
 }
 
 export default Live;

@@ -5,6 +5,7 @@ import Content from './Content';
 import * as userService from '~/services/userService';
 import { Skeleton } from 'antd';
 import Stream from './Stream';
+import { Helmet } from 'react-helmet';
 
 const cx = classNames.bind(styles);
 
@@ -25,6 +26,9 @@ function Following() {
 
     return (
         <div className={cx('wrapper')}>
+            <Helmet>
+                <title>Following - Watch videos from creators you follow | TikTok</title>
+            </Helmet>
             {loading && (
                 <div className={cx('skeleton')}>
                     <Skeleton />

@@ -129,7 +129,7 @@
     font-size: 12px;
     position: absolute;
     background: linear-gradient(131.17deg, rgb(255, 23, 100) 0%, rgb(237, 52, 149) 94.15%);
-    top: 70%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -145,6 +145,7 @@
 
 .nickname {
     flex: 1 1 0%;
+    max-width: 88px;
     font-size: 16px;
     line-height: 20.8px;
     font-weight: 700;
@@ -152,6 +153,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 8px;
 }
 .name {
     font-size: 12px;
