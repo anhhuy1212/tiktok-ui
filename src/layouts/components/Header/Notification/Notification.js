@@ -4,7 +4,7 @@ import { Popover, Spin } from 'antd';
 import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(styles);
-// const notifyTabs = ['All activity', 'Likes', 'Comments', 'Mentions and tags', 'Followers'];
+
 const notifyTabs = [
     {
         id: 1,
