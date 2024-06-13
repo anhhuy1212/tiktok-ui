@@ -6,6 +6,7 @@ import styles from './SuggestedAccounts.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import AccountPreview from './AccountPreview';
 import Image from '~/component/Image';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function AccountItem({ data }) {
@@ -22,7 +23,7 @@ function AccountItem({ data }) {
     return (
         <div>
             <Tippy interactive delay={[800, 0]} offset={[-20, -2]} placement="bottom" render={renderPreview}>
-                <div className={cx('account-item')}>
+                <Link to={`/@${data.nickname}`} className={cx('account-item')}>
                     <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
@@ -31,7 +32,7 @@ function AccountItem({ data }) {
                         </p>
                         <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                     </div>
-                </div>
+                </Link>
             </Tippy>
         </div>
     );

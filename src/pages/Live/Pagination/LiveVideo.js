@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 function LiveVideo({ data }) {
     return (
         <div className={cx('live-video')}>
-            <img src={data} alt="data" />
+            <img src={data} alt="data" loading="lazy" />
         </div>
     );
 }

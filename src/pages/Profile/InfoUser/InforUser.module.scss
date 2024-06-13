@@ -1,0 +1,111 @@
+.wrapper {
+    max-width: 750px;
+    padding-right: 92px;
+    padding-left: 0px;
+    min-height: 140px;
+    // display: flex;
+    // flex-direction: column;
+}
+.user {
+    display: flex;
+}
+.avatar {
+    width: 116px;
+    height: 116px;
+}
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.information {
+    margin-left: 20px;
+}
+.user-title {
+    font-size: 32px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.check {
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    margin-bottom: 3px;
+    font-size: 1.4rem;
+    color: #20d5ec;
+}
+.user-subtitle {
+    height: 25px;
+    max-width: 450px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.follow-btn {
+    width: 192px;
+    min-height: 36px;
+    padding: 6px 8px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.followed-group-btn {
+    width: 100%;
+}
+.message-btn {
+    width: 164px;
+    min-height: 36px;
+    padding: 6px 8px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.unfollow-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+}
+.quantity {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+}
+.unit {
+    color: #51525b;
+    font-weight: 400;
+    margin-left: 6px;
+    margin-right: 20px;
+}
+.user-bio {
+    margin-top: 10px;
+}
+.group-btn {
+    width: 100px;
+    margin-left: 200px;
+    display: flex;
+    background-color: #fff;
+}
+.share-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.share-icon {
+    width: 24px;
+    height: 24px;
+}
+.option-btn {
+    width: 30px;
+    height: 30px;
+    margin-left: 6px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.option-icon {
+    width: 24px;
+    height: 24px;
+}

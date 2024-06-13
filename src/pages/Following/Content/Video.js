@@ -3,9 +3,8 @@ import styles from './Content.module.scss';
 import { useState } from 'react';
 import { LikeIcon } from '~/component/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark, faCommentDots, faShare, faLink } from '@fortawesome/free-solid-svg-icons';
-import { EmbedIcon, SendToFriendsIcon, FacebookIcon, WhatsAppIcon } from '~/component/Icons';
-import ShareMenu from './ShareMenu';
+import { faBookmark, faCommentDots, faShare } from '@fortawesome/free-solid-svg-icons';
+import ShareMenu from '~/component/ShareMenu';
 
 const cx = classNames.bind(styles);
 
@@ -15,31 +14,6 @@ function Video({ width = '346px', height = '619px', data }) {
     const [isSave, setIsSave] = useState(false);
     const [saveCount, setSaveCount] = useState(0);
     const [hovered, setHovered] = useState(false);
-
-    const SHARE_ITEMS = [
-        {
-            icon: <EmbedIcon />,
-            title: 'Embed',
-        },
-        {
-            icon: <SendToFriendsIcon />,
-            title: 'Send to friends',
-        },
-        {
-            icon: <FacebookIcon />,
-            title: 'Share to Facebook',
-            href: 'https://www.facebook.com',
-        },
-        {
-            icon: <WhatsAppIcon />,
-            title: 'Share to WhatsApp',
-            href: 'https://www.whatsapp.com',
-        },
-        {
-            icon: <FontAwesomeIcon icon={faLink} />,
-            title: 'Copy link',
-        },
-    ];
 
     const handleLike = () => {
         if (isLike === false) {
@@ -97,7 +71,7 @@ function Video({ width = '346px', height = '619px', data }) {
                     <strong className={cx('save-count')}>{saveCount}</strong>
                 </button>
 
-                <ShareMenu hoverChange={hovered} hoverOpenChange={handleShare} items={SHARE_ITEMS}>
+                <ShareMenu hoverChange={hovered} hoverOpenChange={handleShare}>
                     <button onClick={handleShare} className={cx('share-btn')}>
                         <p className={cx('share-icon')}>
                             <FontAwesomeIcon className={cx('share-fontawsome-icon')} icon={faShare} />
