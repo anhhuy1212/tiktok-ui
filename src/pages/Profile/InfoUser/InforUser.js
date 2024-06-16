@@ -14,6 +14,7 @@ function InfroUser() {
     const [isFollow, setIsFollow] = useState(false);
     const [shareHovered, setShareHovered] = useState(false);
     const [optionHovered, setOptionHovered] = useState(false);
+    const isLive = false;
 
     const handleFollow = () => {
         setIsFollow(!isFollow);
@@ -29,11 +30,24 @@ function InfroUser() {
         <div className={cx('wrapper')}>
             <div className={cx('user')}>
                 <div className={cx('avatar')}>
-                    <img
-                        className={cx('img-avatar')}
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa2boNo2OYa6CLv00F8NEYjNAK9Ib6UTH74g&s"
-                        alt="useravatar"
-                    />
+                    {!isLive ? (
+                        <img
+                            className={cx('img-avatar')}
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa2boNo2OYa6CLv00F8NEYjNAK9Ib6UTH74g&s"
+                            alt="useravatar"
+                        />
+                    ) : (
+                        <a href="/live">
+                            <span className={cx('border-avatar')}>
+                                <img
+                                    className={cx('img-avatar')}
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa2boNo2OYa6CLv00F8NEYjNAK9Ib6UTH74g&s"
+                                    alt="useravatar"
+                                />
+                            </span>
+                            <span className={cx('note')}>LIVE</span>
+                        </a>
+                    )}
                 </div>
                 <div className={cx('information')}>
                     <span className={cx('user-title')}>Nickname</span>
@@ -83,7 +97,9 @@ function InfroUser() {
                     <span className={cx('unit')}>Like</span>
                 </div>
             </div>
-            <span className={cx('user-bio')}>Bio yet</span>
+            <span className={cx('user-bio')}>
+                Bio yet Bio yet Bio yet Bio yet Bio yet Bio yet Bio yet Bio yet Bio yet Bio yet
+            </span>
         </div>
     );
 }

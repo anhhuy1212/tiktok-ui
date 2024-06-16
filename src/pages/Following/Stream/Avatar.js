@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function Avatar({ data }) {
     return (
-        <Link to="/live" className={cx('wrapper-avatar')}>
+        <Link to={`/@${data.nickname}`} className={cx('wrapper-avatar')}>
             <div className={cx('avatar-live')}>
                 <span className={cx('border-avatar')}></span>
                 <span className={cx('live-arrow-avatar')}>
